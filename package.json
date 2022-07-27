@@ -26,7 +26,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "watch-sass": "sass --watch app/sass:public/stylesheets"
+    "watch-sass": "sass --watch src/components/MainPage.scss:src/style/MainPage.css"
   },
   "eslintConfig": {
     "extends": [
