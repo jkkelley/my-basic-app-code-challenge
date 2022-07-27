@@ -19,30 +19,32 @@ function MainPage() {
     // State
     const [posts, setPosts] = useState<Post[]>([]);
     const [currentPost, setCurrentPost] = useState<Post>();
-    // Get post from api and set state
-    const getPosts = async () => {
-        await axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => {
-                setPosts(res.data);
-                if (params?.id) {
-                    const currentP = res.data.find((p: Post) => p.id === Number(params.id));
-                    setCurrentPost(currentP);
-                } else {
-                    // Sets initial currentPost to index 0
-                    setCurrentPost(res.data[0])
-                }
-            }).catch((error) => {
-                console.log(`Sorry, we couldn't get your posts.`, error);
-            });
-    }
+
 
     const handleClick = (post: Post) => () => {
         navigate(`/${post.id}`);
     }
 
     useEffect(() => {
+        // Get post from api and set state
+        const getPosts = async () => {
+            try {
+                const postList = await axios.get("https://jsonplaceholder.typicode.com/posts");
+                setPosts(postList.data);
+
+                if (params?.id) {
+                    const currentP = postList.data.find((p: Post) => p.id === Number(params.id));
+                    setCurrentPost(currentP);
+                } else {
+                    // Sets initial currentPost to index 0
+                    setCurrentPost(postList.data[0])
+                }
+            } catch (error) {
+                console.log(`Sorry, we couldn't get your posts.`, error)
+            }
+        }
         getPosts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [params?.id]);
+    }, [params.id]);
 
     return (
         <>
