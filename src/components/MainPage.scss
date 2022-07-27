@@ -19,6 +19,12 @@ $media-padding: 24px;
 
 $display-block: block;
 
+$flex-me-up: flex;
+
+$one-thirds-percentage: 33.3333%;
+
+$two-thirds-percentage: 66.6667%;
+
 .App {
   text-align: center;
 }
@@ -35,7 +41,7 @@ div {
 .top-app-bar {
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: $top-app-bar-box-shadow;
-  display: flex;
+  display: $flex-me-up;
   flex-direction: column;
   width: $width-100;
   box-sizing: border-box;
@@ -50,7 +56,7 @@ div {
 
   .top-app-bar-container {
     position: relative;
-    display: flex;
+    display: $flex-me-up;
     -webkit-box-align: center;
     align-items: center;
     padding-left: 16px;
@@ -62,7 +68,7 @@ div {
 .main-page-wrapper {
   width: 95%;
   margin: 75px auto;
-  display: flex;
+  display: $flex-me-up;
 }
 
 .main-page-wrapper {
@@ -78,7 +84,7 @@ div {
 
 .main-page-container {
   box-sizing: border-box;
-  display: flex;
+  display: $flex-me-up;
   flex-flow: row wrap;
   margin-top: -24px;
   width: calc(100% + 24px);
@@ -135,7 +141,7 @@ li:hover {
   vertical-align: middle;
   appearance: none;
   color: inherit;
-  display: flex;
+  display: $flex-me-up;
   -webkit-box-pack: start;
   justify-content: flex-start;
   -webkit-box-align: center;
@@ -209,7 +215,7 @@ li:hover {
     }
 
     .item-2-title-container {
-      display: flex;
+      display: $flex-me-up;
       -webkit-box-align: center;
       align-items: center;
       padding: 16px;
@@ -219,7 +225,7 @@ li:hover {
 
         .span-title {
           margin: 0px;
-          font-family: Roboto, Helvetica, Arial, sans-serif;
+          font-family: $list-style-font-family;
           font-weight: 400;
           font-size: 1.5rem;
           line-height: 1.334;
@@ -287,19 +293,19 @@ li:hover {
 
 @media (min-width: 900px) {
   .item-1 {
-    flex-basis: 33.3333%;
+    flex-basis: $one-thirds-percentage;
     -webkit-box-flex: 0;
     flex-grow: 0;
-    max-width: 33.3333%;
+    max-width: $one-thirds-percentage;
     padding-right: $media-padding;
     padding-top: $media-padding;
   }
 
   .item-2 {
-    flex-basis: 66.6667%;
+    flex-basis: $two-thirds-percentage;
     -webkit-box-flex: 0;
     flex-grow: 0;
-    max-width: 66.6667%;
+    max-width: $two-thirds-percentage;
     padding-top: $media-padding;
   }
 }
