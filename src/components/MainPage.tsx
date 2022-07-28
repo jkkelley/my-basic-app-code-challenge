@@ -1,7 +1,8 @@
 import AppBar from './AppBar';
 import axios from 'axios';
 
-import '../style/MainPage.css';
+import './MainPage.scss'
+// import '../style/MainPage.css';
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
