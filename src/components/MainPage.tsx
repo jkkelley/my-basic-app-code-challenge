@@ -1,7 +1,6 @@
 import AppBar from './AppBar';
 import axios from 'axios';
 
-import '../style/MainPage.css';
 import { TopAppBar, TopAppBarContainer } from '../style/appbar/appBarStyling';
 import {
   Box,
@@ -22,6 +21,7 @@ import {
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import FontStyles from '../style/font/FontFamily';
 
 interface Post {
   body: string;
@@ -64,6 +64,7 @@ function MainPage() {
 
   return (
     <>
+      <FontStyles />
       <TopAppBar>
         <TopAppBarContainer>
           <AppBar />
