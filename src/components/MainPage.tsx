@@ -1,7 +1,7 @@
 import AppBar from './AppBar';
 import axios from 'axios';
 
-import './MainPage.scss'
+import '../style/MainPage.css'
 // import '../style/MainPage.css';
 
 import { useEffect, useState } from 'react';
