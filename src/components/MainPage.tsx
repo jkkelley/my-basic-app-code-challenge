@@ -18,10 +18,10 @@ import {
   TitleContainer,
   Wrapper
 } from '../style/mainPage/mainPageStyling';
+import FontStyles from '../style/font/FontFamily';
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import FontStyles from '../style/font/FontFamily';
 
 interface Post {
   body: string;
