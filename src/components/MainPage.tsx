@@ -1,8 +1,24 @@
 import AppBar from './AppBar';
 import axios from 'axios';
 
-import './MainPage.scss'
-// import '../style/MainPage.css';
+import '../style/MainPage.css';
+import { TopAppBar, TopAppBarContainer } from '../style/appbar/appBarStyling';
+import {
+  Box,
+  Container,
+  HooverElement,
+  Images,
+  ListContainer,
+  ListItem,
+  MainPageContainer,
+  NumberedList,
+  Numbers,
+  Section,
+  SpanDisplay,
+  TextBody,
+  TitleContainer,
+  Wrapper
+} from '../style/mainPage/mainPageStyling';
 
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -48,52 +64,43 @@ function MainPage() {
 
   return (
     <>
-      <header className="top-app-bar">
-        <div className="top-app-bar-container">
+      <TopAppBar>
+        <TopAppBarContainer>
           <AppBar />
-        </div>
-      </header>
+        </TopAppBarContainer>
+      </TopAppBar>
 
-      <div className="main-page-wrapper">
-        <div className="main-page-container">
-          <div className="item-1">
+      <Wrapper>
+        <MainPageContainer>
+          <Section>
             {posts.length > 0 && (
-              <ul className="numbered-list">
+              <ListItem>
                 {posts.map((p, i) => (
-                  <li
-                    className="numbered-list-container ripple"
-                    key={p.id}
-                    onClick={handleClick(p)}
-                    role="button">
-                    <div className="list-number">{i + 1}</div>
-                    <div className="list-text">
-                      <span className="list-style">{p.title}</span>
-                    </div>
-                    <span className="span-list" role="button"></span>
-                  </li>
+                  <NumberedList key={p.id} onClick={handleClick(p)} role="button">
+                    <Numbers>{i + 1}</Numbers>
+                    <ListContainer>
+                      <SpanDisplay spanTitle>{p.title}</SpanDisplay>
+                    </ListContainer>
+                    <HooverElement role="button"></HooverElement>
+                  </NumberedList>
                 ))}
-              </ul>
+              </ListItem>
             )}
-          </div>
+          </Section>
 
-          <div className="item-2">
-            <div className="item-2-container">
-              <img
-                className="img-container"
-                src="https://picsum.photos/200/300"
-                height="200"
-                alt="Paella dish"
-              />
-              <div className="item-2-title-container">
-                <div className="title-container">
-                  <span className="span-title">{currentPost?.title}</span>
-                </div>
-              </div>
-              <div className="item-2-body-container">{currentPost?.body}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <Container>
+            <Box>
+              <Images src="https://picsum.photos/200/300" height="200" alt="Paella dish" />
+              <TitleContainer>
+                <TitleContainer titleContainer>
+                  <SpanDisplay>{currentPost?.title}</SpanDisplay>
+                </TitleContainer>
+              </TitleContainer>
+              <TextBody>{currentPost?.body}</TextBody>
+            </Box>
+          </Container>
+        </MainPageContainer>
+      </Wrapper>
     </>
   );
 }
