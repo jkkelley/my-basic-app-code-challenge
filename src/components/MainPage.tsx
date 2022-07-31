@@ -50,14 +50,17 @@ function MainPage() {
       </AppBar>
 
       {/* Main Page Content */}
-      <Container sx={{ paddingTop: 12 }}>
-        <Grid container spacing={3}>
-          {/* Left Side column */}
-          <Grid item xs={12} md={4}>
+      <Container
+        sx={{
+          paddingTop: 12
+        }}>
+        <Grid container item spacing={3}>
+          {/* Left Side */}
+          <Grid item sm={12} md={4}>
             <MainPageList posts={posts} />
           </Grid>
-          {/* Right side column */}
-          <Grid item xs={12} md={8}>
+          {/* Right side */}
+          <Grid item sm={12} md={8}>
             <MainPageCard currentPost={currentPost} />
           </Grid>
         </Grid>

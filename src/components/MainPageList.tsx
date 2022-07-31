@@ -20,7 +20,7 @@ export default function MainPageList(
 
   return (
     <>
-      <List sx={{ textAlign: 'left' }}>
+      <List sx={{ maxWidth: 899 }}>
         {posts.map((post, i) => (
           <ListItem key={i} button divider onClick={handleClick(post)}>
             <ListItemIcon>{i + 1}</ListItemIcon>
