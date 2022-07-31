@@ -3,12 +3,14 @@ import MainPage from './components/MainPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+      <BrowserRouter>
         <Routes>
-            <Route path="/" element={ <MainPage /> } />
-            <Route path="/:id" element={ <MainPage /> } />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/:id" element={<MainPage />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </>
   );
 }
 
